@@ -1,0 +1,35 @@
+[
+  {
+    "firstName": "student1",
+    "lastName": "Singh",
+    "gender": "Female",
+    "email": "student1@gmail.com",
+    "phoneNumber": "1234567890",
+    "address": "Address 1",
+    "hobbies": "Reading",
+    "dob": "2000-03-01",
+    "subject": "Commerce"
+  },
+  {
+    "firstName": "student2",
+    "lastName": "Sharma",
+    "gender": "Male",
+    "email": "student2@gmail.com",
+    "phoneNumber": "12345678123",
+    "address": "Address 2",
+    "hobbies": "Sports",
+    "dob": "2002-03-02",
+    "subject": "Math"
+  },
+  {
+    "firstName": "student3",
+    "lastName": "Verma",
+    "gender": "Male",
+    "email": "student3@gmail.com",
+    "phoneNumber": "9876543210",
+    "address": "Address 3",
+    "hobbies": "Music",
+    "dob": "2003-03-03",
+    "subject": "Biology"
+  }
+]

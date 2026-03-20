@@ -1,0 +1,13 @@
+{
+    "url": "https://demoqa.com/books",
+    
+    "user": {
+        "firstName": "Student",
+        "lastName": "Sharma",
+        "username": "User",
+        "password": "Test@123" 
+    },
+    "book": {
+        "title": "Learning JavaScript Design Patterns"
+    }
+}

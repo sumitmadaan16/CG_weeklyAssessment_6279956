@@ -1,0 +1,17 @@
+{
+  "url": {
+   "urlRegister": "https://demoqa.com/register"
+  },
+  "user": {
+    "firstName": "user1",
+    "lastName": "last1",
+    "userName" : "user123",
+    "password" : "User@1234"
+  },
+  "book": {
+    "search" : "javascript",
+    "title" : "Understanding ECMAScript 6",
+    "title2" : "Programming JavaScript Applications",
+    "author" : "Eric Elliott"
+  }
+}
