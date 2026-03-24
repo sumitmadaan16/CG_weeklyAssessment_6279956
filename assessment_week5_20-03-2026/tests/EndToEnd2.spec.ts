@@ -8,7 +8,7 @@ test("E2E 2 - Login, Search and Add Book, Delete All and Logout", async ({page})
     const bookStore = new BookStore(page)
     const profile = new Profile(page)
 
-    await login.loginUser()
+    await login.loginUser("endToEnd2")
     await bookStore.addBookFromSearch()
     await profile.deleteFromSearch()
     await profile.deleteAllBooks()

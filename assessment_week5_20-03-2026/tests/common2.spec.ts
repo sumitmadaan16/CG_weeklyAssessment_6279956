@@ -5,6 +5,6 @@ import LoginUser from "../PageObjectModel/login.page"
 test("Common 2 - Register and Login", async ({page}) => {
     const register = new RegisterUser(page)
     const login = new LoginUser(page)
-    await register.registerUser()
-    await login.loginUser()
+    await register.registerUser("common2")
+    await login.loginUser("common2")
 })

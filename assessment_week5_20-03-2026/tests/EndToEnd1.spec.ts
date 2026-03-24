@@ -8,7 +8,7 @@ test("E2E 1 - Register, Login and Add Book to Collection", async ({page}) => {
     const login = new LoginUser(page)
     const bookStore = new BookStore(page)
 
-    await register.registerUser()
-    await login.loginUser()
+    await register.registerUser("endToEnd1")
+    await login.loginUser("endToEnd1")
     await bookStore.addBooktoCollection()
 })

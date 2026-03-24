@@ -1,17 +1,50 @@
 {
   "url": {
-   "urlRegister": "https://demoqa.com/register"
+    "urlRegister": "https://demoqa.com/register",
+    "urlLogin": "https://demoqa.com/login"
   },
-  "user": {
-    "firstName": "user1",
-    "lastName": "last1",
-    "userName" : "user123",
-    "password" : "User@1234"
+  "users": {
+    "common1": {
+      "firstName": "Common",
+      "lastName": "One",
+      "userName": "commonUser1",
+      "password": "Common@1234"
+    },
+    "common2": {
+      "firstName": "Common",
+      "lastName": "Two",
+      "userName": "commonUser2",
+      "password": "Common@1234"
+    },
+    "endToEnd1": {
+      "firstName": "Edte",
+      "lastName": "One",
+      "userName": "e2eUser1",
+      "password": "E2eUser@1234"
+    },
+    "endToEnd2": {
+      "firstName": "Edte",
+      "lastName": "Two",
+      "userName": "e2eUser2",
+      "password": "E2eUser@1234"
+    },
+    "integrationE2E": {
+      "firstName": "Integ",
+      "lastName": "E2E",
+      "userName": "integE2EUser",
+      "password": "Integ@1234"
+    },
+    "integration2": {
+      "firstName": "Integ",
+      "lastName": "Two",
+      "userName": "integUser2",
+      "password": "Integ@1234"
+    }
   },
   "book": {
-    "search" : "javascript",
-    "title" : "Understanding ECMAScript 6",
-    "title2" : "Programming JavaScript Applications",
-    "author" : "Eric Elliott"
+    "search": "javascript",
+    "title": "Understanding ECMAScript 6",
+    "title2": "Programming JavaScript Applications",
+    "author": "Eric Elliott"
   }
 }
