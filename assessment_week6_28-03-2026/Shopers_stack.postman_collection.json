@@ -1,0 +1,911 @@
+{
+  "info": {
+    "_postman_id": "07c810ee-3e47-4d74-8728-62a7cca62992",
+    "name": "Shopers_stack",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43664354",
+    "_collection_link": "https://go.postman.co/collection/43664354-07c810ee-3e47-4d74-8728-62a7cca62992?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "products",
+      "item": [
+        {
+          "name": "view products",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let response = JSON.parse(responseBody)",
+                  "pm.globals.set(\"productId\" , response.data[1].productId)",
+                  "pm.globals.set(\"productId1\" , response.data[5].productId)",
+                  "pm.globals.set(\"productId2\" , response.data[2].productId)"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/products/alpha",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "alpha"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "wishlist",
+      "item": [
+        {
+          "name": "add to wishlist",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": {{productId2}},\n  \"quantity\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/shoppers/{{shopperID}}/wishlist",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shoppers",
+                "{{shopperID}}",
+                "wishlist"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "wishlist Product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/shoppers/{{shopperID}}/wishlist",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shoppers",
+                "{{shopperID}}",
+                "wishlist"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Product from wishList",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/shoppers/{{shopperID}}/wishlist/{{productId1}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shoppers",
+                "{{shopperID}}",
+                "wishlist",
+                "{{productId1}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "Add product1 to cart",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\":{{productId}},\n  \"quantity\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/shoppers/{{shopperID}}/carts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shoppers",
+                "{{shopperID}}",
+                "carts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add product2 to cart",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\":{{productId2}},\n  \"quantity\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/shoppers/{{shopperID}}/carts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shoppers",
+                "{{shopperID}}",
+                "carts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get product",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let res = JSON.parse(responseBody)",
+                  "pm.globals.set(\"itemId\", res.data[0].itemId)"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/shoppers/{{shopperID}}/carts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shoppers",
+                "{{shopperID}}",
+                "carts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update product quantity",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\":{{productId}},\n  \"quantity\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/shoppers/{{shopperID}}/carts/{{itemId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shoppers",
+                "{{shopperID}}",
+                "carts",
+                "{{itemId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/shoppers/{{shopperID}}/carts/{{productId2}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shoppers",
+                "{{shopperID}}",
+                "carts",
+                "{{productId2}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Address",
+          "item": [
+            {
+              "name": "Add Address",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "let res = JSON.parse(responseBody)",
+                      "pm.globals.set(\"addressId\", res.data.addressId)"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addressId\": 1,\n  \"buildingInfo\": \"Sunrise Apartments, Flat No. 315\",\n  \"city\": \"Banglore\",\n  \"country\": \"India\",\n  \"landmark\": \"Near Phoenix Mall\",\n  \"name\": \"flash\",\n  \"phone\": \"9867542313\",\n  \"pincode\": \"432103\",\n  \"state\": \"Karnataka\",\n  \"streetInfo\": \"Viman Nagar Road\",\n  \"type\": \"Home\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/shoppers/{{shopperID}}/address",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shoppers",
+                    "{{shopperID}}",
+                    "address"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Address",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/shoppers/{{shopperID}}/address/{{addressId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shoppers",
+                    "{{shopperID}}",
+                    "address",
+                    "{{addressId}}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "AddUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.globals.set(\"baseUrl\",\"https://www.shoppersstack.com/shopping\")",
+                  "",
+                  "let response = JSON.parse(responseBody);",
+                  "pm.globals.set(\"shopperID\", response.data.userId);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"city\": \"Banglore\",\n  \"country\": \"India\",\n  \"email\": \"flash3@yahoo.com\",\n  \"firstName\": \"flash\",\n  \"gender\": \"MALE\",\n  \"lastName\": \"sharma\",\n  \"password\": \"Flash3@123\",\n  \"phone\": 9867542313,\n  \"state\": \"Karnataka\",\n  \"zoneId\": \"ALPHA\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/shoppers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shoppers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "LoginUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let response = JSON.parse(responseBody);",
+                  "pm.globals.set(\"token\", response.data.jwtToken);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"flash3@yahoo.com\",\n  \"password\": \"Flash3@123\",\n  \"role\": \"SHOPPER\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "item": [
+        {
+          "name": "Place order from cart",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": {\n    \"addressId\": {{addressId}},\n    \"name\": \"flash\",\n    \"type\": \"Home\",\n    \"buildingInfo\": \"Sunrise Apartments, Flat No. 315\",\n    \"streetInfo\": \"Viman Nagar Road\",\n    \"landmark\": \"Near Phoenix Mall\",\n    \"city\": \"Banglore\",\n    \"state\": \"Karnataka\",\n    \"country\": \"India\",\n    \"pincode\": \"432103\",\n    \"phone\": \"9867542313\"\n  },\n  \"paymentMode\": \"COD\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/shoppers/{{shopperID}}/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shoppers",
+                "{{shopperID}}",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Display order history",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let res = JSON.parse(responseBody)",
+                  "pm.globals.set(\"orderId\" , res.data[0].orderId)"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/shoppers/{{shopperID}}/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shoppers",
+                "{{shopperID}}",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update order status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/shoppers/{{shopperID}}/orders/{{orderId}}?status=DELIVERED",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shoppers",
+                "{{shopperID}}",
+                "orders",
+                "{{orderId}}"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "DELIVERED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Generate invoice copy",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/shoppers/{{shopperID}}/orders/{{orderId}}/invoice",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shoppers",
+                "{{shopperID}}",
+                "orders",
+                "{{orderId}}",
+                "invoice"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "Add a review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dateTime\": \"2026-03-28T07:36:42.605Z\",\n  \"description\": \"very nice product\",\n  \"heading\": \"best product\",\n  \"rating\": 4,\n  \"shopperId\": {{shopperID}},\n  \"shopperName\": \"flash\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/reviews?productId={{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reviews"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "{{productId}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "all the review",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let res = JSON.parse(responseBody)",
+                  "pm.globals.set(\"reviewId\", res.data[0].reviewId)"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/reviews/{{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reviews",
+                "{{productId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dateTime\": \"2026-03-28T07:40:12.199Z\",\n  \"description\": \"verry verryy nice\",\n  \"heading\": \"nice product\",\n  \"rating\": 5,\n  \"shopperId\": {{shopperID}},\n  \"shopperName\": \"flash\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/reviews/{{reviewId}}?productId={{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reviews",
+                "{{reviewId}}"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "{{productId}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/reviews/{reviewId}?productId={{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reviews",
+                "{reviewId}"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "{{productId}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

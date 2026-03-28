@@ -1,0 +1,69 @@
+{
+	"id": "3556c0c0-a46d-4476-8c32-4ab133fef7f8",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "shopperID",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "productId",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "productId1",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "productId2",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "addressId",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "itemId",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "orderId",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "reviewId",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"name": "E-Commerce_ShopersStack Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2026-03-28T08:05:53.828Z",
+	"_postman_exported_using": "Postman/12.3.6"
+}
