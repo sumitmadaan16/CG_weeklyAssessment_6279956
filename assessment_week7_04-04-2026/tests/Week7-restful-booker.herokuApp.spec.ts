@@ -4,9 +4,12 @@ import * as trace_events from "node:trace_events";
 
 const filePath = "tests/testData/testData-restful.json";
 
+// this method fetches the data from json file 
 const readData = () => JSON.parse(fs.readFileSync(filePath, "utf-8"));
+// this method saves the data to json
 const writeData = (data: object) => fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 
+// this method fetches the token
 test("CreateToken" , async({request})=>{
     let data = readData()
     console.log("fetching Token")
@@ -27,6 +30,7 @@ test("CreateToken" , async({request})=>{
     writeData(data)
     console.log("token saved in json")
 });
+// this method creates a booking
 test("Create booking" , async({request})=>{
     let data = readData()
     console.log("Creating Booking")
@@ -80,6 +84,7 @@ test("fetching booking from id" , async({request})=>{
     console.log(await fetchingBookingIds.json())
     console.log("Booking fetched")
 });
+// this updates the totalprice
 test("updating booking from id" , async({request})=>{
     let data = readData()
     console.log("updating Booking from id")
@@ -104,6 +109,7 @@ test("updating booking from id" , async({request})=>{
     console.log(await fetchingBookingIds.json())
     console.log("Booking updated")
 });
+// first create a booking before deleting else it gives 405 error
 test("Deleting Booking" , async({request})=>{
     let data = readData()
     console.log("Deleting Booking")
